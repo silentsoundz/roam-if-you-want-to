@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dropdb": "dropdb myroam",
     "createdb": "createdb myroam",
-    "schemaUpdate" : "psql myroam < ./src/model/schema.sql",
+    "schemaUpdate" : "psql myroam < ./src/models/database/schema/schema.sql",
     "dbinit": "npm run dropdb; npm run createdb; npm run schemaUpdate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
