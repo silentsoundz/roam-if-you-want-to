@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node ./src/app.js",
     "dropdb": "dropdb myroam",
     "createdb": "createdb myroam",
     "schemaUpdate": "psql myroam < ./src/models/database/schema/schema.sql",
