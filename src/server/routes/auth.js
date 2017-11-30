@@ -2,8 +2,12 @@ const members = require('../../models/database/members')
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
 
-router.get('/', (request, response) => {
+router.get('/signup', (request, response) => {
   response.render('auth/signup')
 })
 
-module.exports = router;
+router.get('/login', (request, response) => {
+  response.render('auth/login')
+})
+
+module.exports = router

@@ -12,6 +12,6 @@ router.get('/logout', (request, response) => {
   response.redirect('/member/login')
 })
 
-router.use('/signup', authRoutes)
+router.use('/', authRoutes)
 
 module.exports = router
