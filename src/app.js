@@ -16,6 +16,14 @@ app.set('views', `${__dirname}/views`)
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use(session({
+  store: new (pgSession(session))(),
+  secret: "fuck you",
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
+}))
+
 app.use('/', routes)
 
 const port = process.env.PORT || 3000
