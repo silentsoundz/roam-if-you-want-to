@@ -2,6 +2,7 @@ const members = require('../../models/database/members')
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
 
+
 router.get('/signup', (request, response) => {
   response.render('auth/signup')
 })
@@ -18,6 +19,11 @@ router.post('/signup', (request, response, next) => {
 
   members.createMember(full_name, username, email, pic_url, password, current_city)
     .then((member) => {
+      const newMember = {
+        username: member.username
+      }
+      request.session.member = newMember
+      console.log(newMember)
       response.render('member/members', { username })
     })
     .catch((error) => {

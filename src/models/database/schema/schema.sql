@@ -15,3 +15,12 @@ CREATE TABLE post (
   title VARCHAR(255) NOT NULL,
   member_id INTEGER references member(id),
   post_entry TEXT NOT NULL);
+
+DROP TABLE IF EXISTS session;
+CREATE TABLE "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+	"sess" json NOT NULL,
+	"expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
