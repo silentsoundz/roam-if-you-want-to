@@ -19,12 +19,8 @@ router.post('/signup', (request, response, next) => {
 
   members.createMember(full_name, username, email, pic_url, password, current_city)
     .then((member) => {
-      const newMember = {
-        username: member.username
-      }
-      request.session.member = newMember
-      console.log(newMember)
-      response.render('member/members', { username })
+      request.session.member_id = member.id
+      response.render('member/members', { username: member.username })
     })
     .catch((error) => {
       next(error)
