@@ -1,0 +1,15 @@
+extends ../partials/layout.pug
+
+block content
+  form(method="POST" action="/signup")
+    label(for="username") Username
+    input(id="username" type="text" name="username")
+    label(for="full_name") Full Name
+    input(id="full_name" type="text" name="full_name")
+    label(for="current_city") City
+    input(id="current_city" type="text" name="current_city")
+    label(for="email") Email
+    input(id="email" type="text" name="email")
+    label(for="password") Password
+    input(id="password" type="password" name="password")
+    input(type="submit" value="signup")

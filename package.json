@@ -2,9 +2,9 @@
   "name": "roam-if-you-want-to",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node ./src/app.js",
     "dropdb": "dropdb myroam",
     "createdb": "createdb myroam",
     "schemaUpdate": "psql myroam < ./src/models/database/schema/schema.sql",

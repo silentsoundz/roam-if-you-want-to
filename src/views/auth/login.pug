@@ -1,0 +1,9 @@
+extends ../partials/layout.pug
+
+block content
+  form(method="POST" action="/login")
+    label(for="username") Username
+    input(id="username" type="text" name="username")
+    label(for="password") Password
+    input(id="password" type="password" name="password")
+    input(type="submit" value="login")
