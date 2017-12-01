@@ -29,4 +29,23 @@ router.get('/login', (request, response) => {
   response.render('auth/login')
 })
 
+router.post('/login', (request, response, next) => {
+  const {
+    username,
+    password
+  } = request.body
+
+  members.getMemberByUsername(username)
+    .then((member) => {
+      if (password === member.password) {
+        response.render('member/members', { username })
+      } else {
+        response.render('auth/login')
+      }
+    })
+    .catch((error) => {
+      next(error)
+    })
+})
+
 module.exports = router
