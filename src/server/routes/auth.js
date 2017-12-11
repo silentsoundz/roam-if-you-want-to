@@ -41,7 +41,9 @@ router.post('/login', (request, response, next) => {
     .then((member) => {
       if (password === member.password) {
         request.session.member_id = member.id
-        response.redirect(`member/${member.username}`)
+        request.session.save((error) => {
+          response.redirect(`member/${member.username}`)
+        })
       } else {
         response.render('auth/login')
       }

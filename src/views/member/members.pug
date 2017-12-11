@@ -2,6 +2,12 @@ extends ../partials/layout.pug
 
 block content
   div
-    p Username: #{username}
-    p City: #{current_city}
-    p Join Date: #{join_date}
+    div Username: #{username}
+      if (iOwnThis) 
+        button edit
+    div City: #{current_city}
+      if (iOwnThis) 
+        button edit
+    div Join Date: #{join_date}
+      if (iOwnThis) 
+        button edit
