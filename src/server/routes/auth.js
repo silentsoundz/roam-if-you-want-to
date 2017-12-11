@@ -40,7 +40,8 @@ router.post('/login', (request, response, next) => {
   members.getMemberByUsername(username)
     .then((member) => {
       if (password === member.password) {
-        response.render('member/members', { username })
+        request.session.member_id = member.id
+        response.redirect('member/members')
       } else {
         response.render('auth/login')
       }
