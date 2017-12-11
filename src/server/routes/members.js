@@ -1,9 +1,10 @@
 const members = require('../../models/database/members')
 const router = require('express').Router()
 
-router.get('/members', (request, response, next) => {
+router.get('/:username', (request, response, next) => {
+  const { username } = request.params
   const { member_id } = request.session
-  members.getMemberById(member_id)
+  members.getMemberByUsername(username)
     .then((member) => {
       response.render('member/members', {
         authenticated: true,
