@@ -3,11 +3,11 @@ const sessionChecker = (request, response, next) => {
 }
 
 const isLoggedIn = (request, response, next) => {
-  if (!request.session.member) {
+  if (!request.session.member_id) {
     response.redirect('/login')
   } else {
     next()
   }
 }
 
-module.exports = { isLoggedIn, sessionChecker };
+module.exports = { isLoggedIn, sessionChecker }

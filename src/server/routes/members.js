@@ -6,6 +6,7 @@ router.get('/members', (request, response, next) => {
   members.getMemberById(member_id)
     .then((member) => {
       response.render('member/members', {
+        authenticated: true,
         username: member.username,
         current_city: member.current_city,
         join_date: member.date_joined
