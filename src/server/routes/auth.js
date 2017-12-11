@@ -20,7 +20,7 @@ router.post('/signup', (request, response, next) => {
   members.createMember(full_name, username, email, pic_url, password, current_city)
     .then((member) => {
       request.session.member_id = member.id
-      response.render('member/members', { username: member.username })
+      response.redirect('member/members')
     })
     .catch((error) => {
       next(error)
@@ -40,7 +40,8 @@ router.post('/login', (request, response, next) => {
   members.getMemberByUsername(username)
     .then((member) => {
       if (password === member.password) {
-        response.render('member/members', { username })
+        request.session.member_id = member.id
+        response.redirect('member/members')
       } else {
         response.render('auth/login')
       }

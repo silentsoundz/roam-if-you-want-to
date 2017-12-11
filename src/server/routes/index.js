@@ -10,9 +10,11 @@ router.get('/', (request, response) => {
 
 router.get('/logout', (request, response) => {
   request.session.destroy(err => console.log)
-  response.redirect('/member/login')
+  response.redirect('/login')
 })
 
 router.use('/', authRoutes)
+router.use(middleware.isLoggedIn)
+router.use('/member', memberRoutes)
 
 module.exports = router
