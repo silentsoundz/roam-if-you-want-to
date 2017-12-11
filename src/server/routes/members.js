@@ -10,7 +10,7 @@ router.get('/:username', (request, response, next) => {
         response.render('member/members', {
           iOwnThis: true,
           authenticated: true,
-          username: member.username,
+          full_name: member.full_name,
           current_city: member.current_city,
           join_date: member.date_joined
         })
@@ -18,7 +18,7 @@ router.get('/:username', (request, response, next) => {
         response.render('member/members', {
           iOwnThis: false,
           authenticated: true,
-          username: member.username,
+          full_name: member.full_name,
           current_city: member.current_city,
           join_date: member.date_joined
         })
