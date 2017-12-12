@@ -55,7 +55,7 @@ const getMemberById = id =>
   )
 
 const getMembers = () =>
-  db.any(`SELECT * FROM member`)
+  db.any('SELECT * FROM member')
 
 module.exports = {
   createMember,
@@ -63,5 +63,5 @@ module.exports = {
   updateMember,
   getMemberByUsername,
   getMemberById,
-  getMembers
+  getMembers,
 }

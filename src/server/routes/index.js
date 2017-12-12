@@ -17,5 +17,6 @@ router.get('/logout', (request, response) => {
 router.use('/', authRoutes)
 router.use(middleware.isLoggedIn)
 router.use('/member', memberRoutes)
+router.use('/show', postRoutes)
 
 module.exports = router

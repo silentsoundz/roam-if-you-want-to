@@ -46,7 +46,7 @@ const getPostByPostId = id =>
 
 
 const getPosts = () =>
-  db.any(`SELECT * FROM post`)
+  db.any('SELECT * FROM post')
 
 
 const getPostsByMemberId = member_id =>

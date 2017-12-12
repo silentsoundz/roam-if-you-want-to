@@ -15,3 +15,6 @@ block content
           input(type="text" name="full_name" value=current_city)
           button.submit submit
     div Join Date: #{join_date}
+    div Post: 
+      each post in posts
+        a(href="/show/"+ post.id)=post.title
