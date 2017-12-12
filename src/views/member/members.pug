@@ -2,6 +2,16 @@ extends ../partials/layout.pug
 
 block content
   div
-    p Username: #{username}
-    p City: #{current_city}
-    p Join Date: #{join_date}
+    if (iOwnThis)
+      button.edit edit
+    div Name: #{full_name}
+      if (iOwnThis) 
+        span.editor
+          input(type="text" name="full_name" value=full_name)
+          button.submit submit
+    div City: #{current_city}
+      if (iOwnThis) 
+        span.editor
+          input(type="text" name="full_name" value=current_city)
+          button.submit submit
+    div Join Date: #{join_date}

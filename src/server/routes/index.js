@@ -10,6 +10,7 @@ router.get('/', (request, response) => {
 
 router.get('/logout', (request, response) => {
   request.session.destroy(err => console.log)
+  response.clearCookie('connect.sid')
   response.redirect('/login')
 })
 

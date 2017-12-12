@@ -1,16 +1,28 @@
 const members = require('../../models/database/members')
 const router = require('express').Router()
 
-router.get('/members', (request, response, next) => {
+router.get('/:username', (request, response, next) => {
+  const { username } = request.params
   const { member_id } = request.session
-  members.getMemberById(member_id)
+  members.getMemberByUsername(username)
     .then((member) => {
-      response.render('member/members', {
-        authenticated: true,
-        username: member.username,
-        current_city: member.current_city,
-        join_date: member.date_joined
-      })
+      if (member.id === member_id) {
+        response.render('member/members', {
+          iOwnThis: true,
+          authenticated: true,
+          full_name: member.full_name,
+          current_city: member.current_city,
+          join_date: member.date_joined
+        })
+      } else {
+        response.render('member/members', {
+          iOwnThis: false,
+          authenticated: true,
+          full_name: member.full_name,
+          current_city: member.current_city,
+          join_date: member.date_joined
+        })
+      }
     })
     .catch((error) => {
       next(error)
