@@ -1,0 +1,15 @@
+$primary-color: #2e355f;
+$secondary-color: #9cc287;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  width: 100%;
+}
+
+body {
+  background: url('/images/bg.png') no-repeat center center fixed;
+}
