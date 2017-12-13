@@ -1,6 +1,10 @@
 extends ../partials/layout.pug
 
 block content
-  div Title: #{title}
-  div Member Id: #{member_id}
-  div Post Entry: #{post_entry}
+  div author
+    div Name: #{full_name}
+    div Join Date: #{join_date}
+    div City: #{current_city}
+  div post
+    div Title: #{title}
+    div Post Entry: #{post_entry}
